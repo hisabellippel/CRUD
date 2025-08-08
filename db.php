@@ -2,12 +2,12 @@
 // Conexão com o banco (contém erro de variável e de conexão)
 $host = "localhost";
 $user = "root";
-$password = "";
-$db = "crud_exemplo";
+$password = "root";
+$db = "crud_system";
 
-$conn = mysqli_connect($hot, $user, $password, $db); // Erro: $hot ao invés de $host
+$conn = new mysqli($host, $user, $password, $db); // Erro: $hot ao invés de $host
 
-if (!$conn) {
-    echo "Falha na conexão!";
+if ($conn->connect_error) {
+    echo ("Falha na conexão:", . $conn->connect_error);
 }
 ?>
